@@ -1,0 +1,195 @@
+<p>display-donation-listing works!</p>
+
+<form class="form-horizontal" [formGroup]="donationStatisticsFormGroup">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="totalNumberOfUnits">Total Number Of Units</label>
+    <div class="col-sm-4">
+      <input id="totalNumberOfUnits" type="text" class="form-control" formControlName="totalNumberOfUnitsFormControl">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="totalQuantity">Total Quantity</label>
+    <div class="col-sm-4">
+      <input id="totalQuantity" type="text" class="form-control" formControlName="totalQuantityFormControl">
+    </div>
+  </div>
+
+</form>
+
+
+
+
+
+
+
+<div class="panel panel-primary" [class.panel-success]="true" *ngIf="donorIndex == -1 && donorCreate == -1">
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Search</h3>
+  </div>
+
+  <div class="panel-body">
+
+    <div class="btn-toolbar">
+      <button class="btn btn-primary pull-right" (click)="onClickCreateNewDonor()" *ngIf="donorIndex == -1 && donorCreate == -1">Create New Donor</button>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search By ID" [(ngModel)]="searchTerm" />
+    </div>
+
+    <div class="form-group">
+      <div class="table-responsive">
+        <table class="table table-bordered" *ngIf="filteredDonors && filteredDonors.length">
+          <thead>
+            <!-- <tr class="bg-primary"> -->
+            <tr>
+              <th>Ident</th>
+              <th>Name</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let donor of filteredDonors; let ind=index;" class="pointerCursor" (click)="onClickDonor(ind)">
+              <td>{{ donor.employeeNumber }}</td>
+              <td>{{ donor.name }}</td>
+              <td>{{ donor.phone }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<app-display-donor *ngIf="donorIndex != -1 && donorCreate == -1" 
+     [donor]="filteredDonors[donorIndex]"
+     [donationId] = "donationId"
+     [donation] = "donation"
+     (childDonatedEventEmitter)="parentOnDonated($event)"
+     (childNewDonationListingEventEmitter)="parentOnNewDonationListing($event)"
+     (childBackToSearchEventEmitter)="parentOnBackToSearch($event)"
+     (childSavedChangesEventEmitter)="parentOnSavedChanges($event)">
+</app-display-donor>
+
+<!-- <div class="btn-toolbar" *ngIf="donorIndex != -1 && donorCreate == -1">
+  <button class="btn btn-primary" (click)="onClickBackToSearchList()">Back To Search List</button>
+</div> -->
+
+
+
+
+
+
+
+<app-create-donor *ngIf="donorIndex == -1 && donorCreate == 1"
+     (childDonorCreatedEventEmitter)="parentOnDonorCreated($event)"
+     (childNewDonorEventEmitter)="parentOnNewDonor($event)"
+     (childCancelledEventEmitter)="parentOnCancelled($event)">  
+</app-create-donor>
+
+<!-- <div class="btn-toolbar" *ngIf="donorIndex == -1 && donorCreate == 1">
+  <button class="btn btn-primary" (click)="onClickCancel()">Cancel</button>
+</div> -->
+
+
+
+
+
+<!-- <app-edit-donor *ngIf="donorIndex != -1 && donorCreate == -1 && donorEdit == 1">
+   
+</app-edit-donor>
+
+<div class="btn-toolbar" *ngIf="donorIndex == -1 && donorCreate == 1">
+  <button class="btn btn-primary" (click)="onClickCancel()">Cancel</button>
+</div> -->
+
+
+
+
+
+<!-- <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td>ID</td>
+                    <td>{{donor.id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Ident</td>
+                    <td>{{donor.employeeNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td>{{donor.name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Gender</td>
+                    <td>{{donor.gender}}</td>
+                  </tr>
+                  <tr>
+                    <td>JMBG</td>
+                    <td>{{donor.identificationNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Birth Date</td>
+                    <td>{{donor.birthDate}}</td>
+                  </tr>
+                  <tr>
+                    <td>Blood Type</td>
+                    <td>{{donor.bloodType}}</td>
+                  </tr>
+                  <tr>
+                    <td>Rh Factor</td>
+                    <td>{{donor.rhFactor}}</td>
+                  </tr>
+                  <tr>
+                    <td>Last Donation Date</td>
+                    <td>{{donor.lastDonationDate}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Donations</td>
+                    <td>{{donor.totalDonationNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Member</td>
+                    <td>{{donor.member}}</td>
+                  </tr>
+                  <tr>
+                    <td>Active</td>
+                    <td>{{donor.activity}}</td>
+                  </tr>
+                  <tr>
+                    <td>Note</td>
+                    <td>{{donor.note}}</td>
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    <td>{{donor.status}}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>{{donor.phone}}</td>
+                  </tr>
+                </tbody>
+              </table> -->
+
+
+
+
+
+
+
+
+  

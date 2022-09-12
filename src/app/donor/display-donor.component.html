@@ -1,0 +1,282 @@
+<p>display-donor works!</p>
+
+
+<!-- <div class="panel panel-primary" [class.panel-success]="panelExpanded == ind">
+    <div class="panel-heading pointerCursor" (click)="toggleShow(ind)">
+        <h3 class="panel-title">{{donation.eventName}}</h3>
+    </div>
+    <div class="panel-body" *ngIf="panelExpanded == ind">
+        <app-display-donation [donation]="donation"></app-display-donation>
+        <app-display-donation-listing [donationId]="donation.id"></app-display-donation-listing>
+    </div>
+    <div class="panel-footer" *ngIf="panelExpanded == ind">
+    </div>
+</div> -->
+
+<div class="panel panel-primary" [class.panel-success]="true">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">{{donor.name}}</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <form class="form-horizontal" [formGroup]="donorFormGroup">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="id">ID</label>
+                <div class="col-sm-8">
+                    <input id="id" type="text" class="form-control" formControlName="idFormControl">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="employeeNumber">Ident</label>
+                <div class="col-sm-8">
+                    <input id="employeeNumber" type="text" class="form-control"
+                        formControlName="employeeNumberFormControl">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">Name</label>
+                <div class="col-sm-8">
+                    <input id="name" type="text" class="form-control" formControlName="nameFormControl">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Gender</label>
+              <div class="col-sm-8">
+                <label class="radio-inline">
+                  <input id="gender" type="radio" value="male" formControlName="genderFormControl">
+                  Male
+                </label>
+                <label class="radio-inline">
+                  <input id="gender" type="radio" value="female" formControlName="genderFormControl">
+                  Female
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="identificationNumber">JMBG</label>
+                <div class="col-sm-8">
+                    <input id="identificationNumber" type="text" class="form-control"
+                        formControlName="identificationNumberFormControl">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="birthDate">Birth Date</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" id="birthDate" formControlName="birthDateFormControl">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Blood Type</label>
+              <div class="col-sm-8">
+                <label class="radio-inline">
+                  <input id="bloodType" type="radio" value="A" formControlName="bloodTypeFormControl">
+                  A
+                </label>
+                <label class="radio-inline">
+                  <input id="bloodType" type="radio" value="B" formControlName="bloodTypeFormControl">
+                  B
+                </label>
+                <label class="radio-inline">
+                  <input id="bloodType" type="radio" value="AB" formControlName="bloodTypeFormControl">
+                  AB
+                </label>
+                <label class="radio-inline">
+                  <input id="bloodType" type="radio" value="0" formControlName="bloodTypeFormControl">
+                  0
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Rh Factor</label>
+              <div class="col-sm-8">
+                <label class="radio-inline">
+                  <input id="rhFactor" type="radio" value="+" formControlName="rhFactorFormControl">
+                  +
+                </label>
+                <label class="radio-inline">
+                  <input id="rhFactor" type="radio" value="-" formControlName="rhFactorFormControl">
+                  -
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="lastDonationDate">Last Donation Date</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" id="lastDonationDate" formControlName="lastDonationDateFormControl">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="totalDonationNumber">Total Donations Number</label>
+              <div class="col-sm-8">
+                  <input id="totalDonationNumber" type="text" class="form-control"
+                      formControlName="totalDonationNumberFormControl">
+              </div>
+          </div>
+
+          <div class="form-group">
+            <span class="col-md-2"></span>
+            <div class="col-md-8">
+              <label class="checkbox-inline">
+                <input type="checkbox" formControlName="memberFormControl">
+                Is A Member
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <span class="col-md-2"></span>
+            <div class="col-md-8">
+              <label class="checkbox-inline">
+                <input type="checkbox" formControlName="activityFormControl">
+                Is Active
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">Note</label>
+            <div class="col-sm-8">
+                <input id="note" type="text" class="form-control" formControlName="noteFormControl">
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label class="col-sm-2 control-label" for="status">Status</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="status" formControlName="statusFormControl">
+              <option *ngFor="let status of statusList" [value]="status.id">
+                {{status.statusName}}
+              </option>
+            </select>
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="status">Status</label>
+          <div class="col-sm-4">
+            <select class="form-control" id="status" formControlName="statusFormControl">
+              <option *ngFor="let status of statusList" [value]="status">
+                {{status}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="phone">Phone</label>
+          <div class="col-sm-8">
+              <input id="phone" type="text" class="form-control" formControlName="phoneFormControl">
+          </div>
+      </div>
+
+
+
+
+
+
+
+
+      
+            <div class="btn-toolbar">
+              <button class="btn btn-primary" (click)="onClickBackToSearch()">Back To Search</button>
+              <button class="btn btn-primary" (click)="onClickDonate()">Donate</button>
+              <button *ngIf="editDonor == -1" class="btn btn-primary" (click)="onClickEdit()">Edit</button> 
+              <button *ngIf="editDonor == 1" class="btn btn-primary" (click)="onClickSaveChanges()">Save Changes</button>   
+              <button *ngIf="editDonor == 1" class="btn btn-primary" (click)="onClickCancel()">Cancel</button>     
+          </div>
+  
+
+
+        </form>
+
+            
+
+    </div>
+
+</div>
+
+
+
+
+
+
+  
+
+
+
+  <!-- <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td>ID</td>
+                    <td>{{donor.id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Ident</td>
+                    <td>{{donor.employeeNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td>{{donor.name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Gender</td>
+                    <td>{{donor.gender}}</td>
+                  </tr>
+                  <tr>
+                    <td>JMBG</td>
+                    <td>{{donor.identificationNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Birth Date</td>
+                    <td>{{donor.birthDate}}</td>
+                  </tr>
+                  <tr>
+                    <td>Blood Type</td>
+                    <td>{{donor.bloodType}}</td>
+                  </tr>
+                  <tr>
+                    <td>Rh Factor</td>
+                    <td>{{donor.rhFactor}}</td>
+                  </tr>
+                  <tr>
+                    <td>Last Donation Date</td>
+                    <td>{{donor.lastDonationDate}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Donations</td>
+                    <td>{{donor.totalDonationNumber}}</td>
+                  </tr>
+                  <tr>
+                    <td>Member</td>
+                    <td>{{donor.member}}</td>
+                  </tr>
+                  <tr>
+                    <td>Active</td>
+                    <td>{{donor.activity}}</td>
+                  </tr>
+                  <tr>
+                    <td>Note</td>
+                    <td>{{donor.note}}</td>
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    <td>{{donor.status}}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>{{donor.phone}}</td>
+                  </tr>
+                </tbody>
+              </table> -->

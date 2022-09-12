@@ -1,0 +1,28 @@
+<p>list-donations works!</p>
+
+
+    <div class="btn-toolbar">
+        <button class="btn btn-primary pull-right" (click)="onClickCreateNew()">Create New</button>
+    </div>
+    
+    <br>
+    
+    <div *ngFor="let donation of donations let ind=index">
+        <div class="panel panel-primary" [class.panel-success]="panelExpanded == ind">
+            <div class="panel-heading pointerCursor" (click)="toggleShow(ind)">
+                <h3 class="panel-title">{{donation.eventName}}</h3>
+            </div>
+            <div class="panel-body" *ngIf="panelExpanded == ind">
+                <app-display-donation [donation]="donation"></app-display-donation>
+                <app-display-donation-listing 
+                [donation]="donation" 
+                [donationId]="donation.id"></app-display-donation-listing>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
