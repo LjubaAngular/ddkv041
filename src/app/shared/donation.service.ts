@@ -11,13 +11,21 @@ import { IStatus } from '../donor/istatus';
 })
 export class DonationService {
 
-  baseUrl1 = 'http://localhost:3000/donations';
+  // baseUrl1 = 'http://localhost:3000/donations';
 
-  baseUrl2 = 'http://localhost:3000/donationListings';
+  // baseUrl2 = 'http://localhost:3000/donationListings';
 
-  baseUrl3 = 'http://localhost:3000/donors';
+  // baseUrl3 = 'http://localhost:3000/donors';
 
-  baseUrl4 = 'http://localhost:3000/statuses';
+  // baseUrl4 = 'http://localhost:3000/statuses';
+
+  baseUrl1 = 'https://my-json-server.typicode.com/LjubaAngular/ddk-v05/donations';
+
+  baseUrl2 = 'https://my-json-server.typicode.com/LjubaAngular/ddk-v05/donationListings';
+
+  baseUrl3 = 'https://my-json-server.typicode.com/LjubaAngular/ddk-v05/donors';
+
+  baseUrl4 = 'https://my-json-server.typicode.com/LjubaAngular/ddk-v05/statuses';
 
   // statusList: IStatus[] = [
   //   {
