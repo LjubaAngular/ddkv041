@@ -93,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ddk-v04:build:production"
+              "browserTarget": "ddk-v041:build:production"
             },
             "development": {
-              "browserTarget": "ddk-v04:build:development"
+              "browserTarget": "ddk-v041:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -104,7 +104,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ddk-v04:build"
+            "browserTarget": "ddk-v041:build"
           }
         },
         "test": {
@@ -127,5 +127,5 @@
       }
     }
   },
-  "defaultProject": "ddk-v04"
+  "defaultProject": "ddk-v041"
 }

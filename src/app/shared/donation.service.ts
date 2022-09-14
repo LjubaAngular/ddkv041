@@ -19,13 +19,28 @@ export class DonationService {
 
   // baseUrl4 = 'http://localhost:3000/statuses';
 
-  baseUrl1 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donations';
 
-  baseUrl2 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donationListings';
 
-  baseUrl3 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donors';
+  
 
-  baseUrl4 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/statuses';
+  // baseUrl1 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donations';
+
+  // baseUrl2 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donationListings';
+
+  // baseUrl3 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/donors';
+
+  // baseUrl4 = 'https://my-json-server.typicode.com/LjubaAngular/ddkv04/statuses';
+
+
+  baseUrl1 = 'https://my-json-server.typicode.com/LjubaAngular/demo/donations';
+
+  baseUrl2 = 'https://my-json-server.typicode.com/LjubaAngular/demo/donationListings';
+
+  baseUrl3 = 'https://my-json-server.typicode.com/LjubaAngular/demo/donors';
+
+  baseUrl4 = 'https://my-json-server.typicode.com/LjubaAngular/demo/statuses';
+
+
 
   // statusList: IStatus[] = [
   //   {
