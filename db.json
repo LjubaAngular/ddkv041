@@ -1,6 +1,12 @@
 {
   "donations": [
-    
+    {
+      "id": 1,
+      "eventName": "1. Redovna akcija davanja krvi",
+      "eventDate": "2022-01-12",
+      "place": "Beograd",
+      "address": "Deligradska 28"
+    },
     {
       "id": 2,
       "eventName": "2. Redovna akcija davanja krvi",
